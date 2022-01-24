@@ -8,7 +8,7 @@
 </head>
 <body>
     <header>
-        <h1>Chollo ░▒▓ Severo</h1>
+        <a href={{ route('inicio') }}><h1>Chollo ░▒▓ Severo</h1></a>
         <nav>
             <ul>
                 <li><a href={{ route('inicio') }}>Inicio</a></li>
