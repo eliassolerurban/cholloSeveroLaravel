@@ -27,8 +27,10 @@ class PagesController extends Controller
         $chollo -> descripcion = $request -> descripcion;
         $chollo -> categoria = $request -> categoria;
         $chollo -> precio = $request -> precio;
+        $chollo -> url = $request -> url;
         $chollo -> precio_descuento = $request -> precio_descuento;
-    
+        $chollo -> puntuacion = 0;
+        $chollo -> disponible = true;
         $chollo -> save();
     
         return back() -> with('mensaje', 'Nota agregada exitósamente');
