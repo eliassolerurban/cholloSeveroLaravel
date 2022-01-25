@@ -7,7 +7,10 @@ use Illuminate\Http\Request;
 
 class PagesController extends Controller
 {
-    public function inicio() { return view('inicio'); }
+    public function inicio() {
+        $chollos = Chollo::all();
+        return view('inicio', compact('chollos'));
+    }
     public function nuevos() { return view('nuevos'); }
     public function destacados() { return view('destacados'); }
     public function formCrear() { return view('chollos.crear'); }

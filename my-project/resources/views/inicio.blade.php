@@ -1,5 +1,15 @@
 @extends('static')
 @section('inicio')
-<h2>Bienvenido</h2>
-Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus, aliquid nulla. Ea accusamus odio est. Reprehenderit alias autem quaerat adipisci, tempora, dicta voluptates, error obcaecati quam ratione molestias quasi natus.
+    <h2>Bienvenido</h2>
+    @foreach ($chollos as $chollo)
+        <div>
+            <h4>{{$chollo->titulo}}</h4>
+            <p>Categoría: {{$chollo->categoria}}</p> 
+            <p>Descripción: {{$chollo->descripcion}}</p>
+            <p>Precio original: {{$chollo->precio}}€</p>
+            <p>Precio actual: {{$chollo->precio_descuento}}€</p>
+            <p>Puntuación: {{$chollo->puntuacion}}</p>
+            <p>URL: <a href={{$chollo->url}}>{{$chollo->url}}</a></p>
+        </div>
+    @endforeach
 @endsection
