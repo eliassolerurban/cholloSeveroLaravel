@@ -19,3 +19,5 @@ Route::get("nuevos", [PagesController::class, 'nuevos'])->name('nuevos');
 Route::get("destacados", [PagesController::class, 'destacados'])->name('destacados');
 Route::get("crear", [PagesController::class, 'formCrear'])->name('formCrear');
 Route::post('crear', [ PagesController::class, 'crear' ]) -> name('crear');
+Route::get('editar/{id}', [ PagesController::class, 'formEditar' ]) -> name('formEditar');
+Route::put('editar/{id}', [ PagesController::class, 'editar' ]) -> name('editar');

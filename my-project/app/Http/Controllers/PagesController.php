@@ -36,6 +36,32 @@ class PagesController extends Controller
         $chollo -> disponible = true;
         $chollo -> save();
     
-        return back() -> with('mensaje', 'Nota agregada exitósamente');
+        return back() -> with('mensaje', 'Chollo agregado exitósamente');
+    }
+    public function formEditar($id) {
+        $chollo = Chollo::findOrFail($id);
+        return view('chollos.editar', compact('chollo'));
+    }
+
+    public function editar(Request $request, $id){
+        $request -> validate([
+            'titulo' => 'required',
+            'descripcion' => 'required',
+            'categoria' => 'required',
+            'precio' => 'required',
+            'precio_descuento' => 'required',
+            'puntuacion' => 'required'
+          ]);
+
+        $cholloEditar = Chollo::findOrFail($id);
+        $cholloEditar -> titulo = $request -> titulo; 
+        $cholloEditar -> descripcion = $request -> descripcion; 
+        $cholloEditar -> categoria = $request -> categoria; 
+        $cholloEditar -> precio = $request -> precio; 
+        $cholloEditar -> precio_descuento = $request -> precio_descuento; 
+        $cholloEditar -> puntuacion = $request -> puntuacion;
+        $cholloEditar -> save(); 
+
+        return back() -> with('mensaje', 'Chollo actualizado');
     }
 }
