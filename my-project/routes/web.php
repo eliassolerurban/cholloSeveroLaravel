@@ -18,4 +18,4 @@ Route::get("/", [PagesController::class, 'inicio'])->name('inicio');
 Route::get("nuevos", [PagesController::class, 'nuevos'])->name('nuevos');
 Route::get("destacados", [PagesController::class, 'destacados'])->name('destacados');
 Route::get("crear", [PagesController::class, 'formCrear'])->name('formCrear');
-Route::post('formCrear', [ PagesController::class, 'crear' ]) -> name('crear');
+Route::post('crear', [ PagesController::class, 'crear' ]) -> name('crear');
