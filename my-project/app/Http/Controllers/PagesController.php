@@ -15,7 +15,10 @@ class PagesController extends Controller
         $chollosNuevos = Chollo::orderBy('id', 'desc')->get();
         return view('nuevos',compact('chollosNuevos'));
     }
-    public function destacados() { return view('destacados'); }
+    public function destacados() {
+        $chollosDestacados = Chollo::orderBy('puntuacion', 'desc')->limit(3)->get();
+        return view('destacados', compact('chollosDestacados'));
+    }
     public function formCrear() { return view('chollos.crear'); }
     public function crear(Request $request) {
         
