@@ -11,7 +11,10 @@ class PagesController extends Controller
         $chollos = Chollo::all();
         return view('inicio', compact('chollos'));
     }
-    public function nuevos() { return view('nuevos'); }
+    public function nuevos() {
+        $chollosNuevos = Chollo::orderBy('id', 'desc')->get();
+        return view('nuevos',compact('chollosNuevos'));
+    }
     public function destacados() { return view('destacados'); }
     public function formCrear() { return view('chollos.crear'); }
     public function crear(Request $request) {

@@ -10,7 +10,7 @@
     <form action={{ route("eliminar", $chollo->id) }} method="post">
         @csrf
         @method("delete")
-        <button class="btn btn-danger btn-block" type="submit">
+        <button class="btn btn-danger btn-block" onclick="return confirm('¿Estás seguro de que quieres eliminar este chollo?')" type="submit">
             Eliminar chollo
           </button>
     </form>    
