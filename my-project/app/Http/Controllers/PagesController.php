@@ -64,4 +64,16 @@ class PagesController extends Controller
 
         return back() -> with('mensaje', 'Chollo actualizado');
     }
+
+    public function confirmEliminar($id) {
+        $chollo = Chollo::findOrFail($id);
+        return view('chollos.eliminar', compact('chollo'));
+    }
+
+    public function eliminar($id){
+        $cholloEliminar = Chollo::findOrFail($id);
+        $cholloEliminar -> delete();
+
+        return $this->inicio();
+    }
 }

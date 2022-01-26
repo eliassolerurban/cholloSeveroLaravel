@@ -22,6 +22,7 @@
         @yield('inicio')
         @yield('nuevos')
         @yield('destacados')
+        @yield('eliminar')
         <div>
             <a href={{ route('formCrear') }}>Crear un chollo</a>
         </div>
