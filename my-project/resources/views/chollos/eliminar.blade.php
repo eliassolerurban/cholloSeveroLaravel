@@ -1,0 +1,18 @@
+@extends('static')
+@section('eliminar')
+    <h3>Previsualización del chollo</h3>
+    <h4>{{$chollo->titulo}}</h4>
+    <p>Categoría: {{$chollo->categoria}}</p> 
+    <p>Descripción: {{$chollo->descripcion}}</p>
+    <p>Precio original: {{$chollo->precio}}€</p>
+    <p>Precio actual: {{$chollo->precio_descuento}}€</p>
+    <p>Puntuación: {{$chollo->puntuacion}}</p>
+    <p>URL: <a href={{$chollo->url}}>{{$chollo->url}}</a></p>
+    <form action={{ route("eliminar", $chollo->id) }} method="post">
+        @csrf
+        @method("delete")
+        <button class="btn btn-danger btn-block" onclick="return confirm('¿Estás seguro de que quieres eliminar este chollo?')" type="submit">
+            Eliminar chollo
+          </button>
+    </form>    
+@endsection

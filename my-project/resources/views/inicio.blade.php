@@ -5,11 +5,7 @@
         <div>
             <h4>{{$chollo->titulo}}</h4>
             <a class="btn" href={{ route("formEditar", $chollo->id) }}>Editar</button></a>
-            <form action={{ route("eliminar", $chollo->id) }}>
-                <button class="btn btn-danger btn-block" onclick="return confirm('¿Estás seguro de que quieres eliminar este chollo?')" type="submit">
-                    Eliminar
-                </button>
-            </form>
+            <a class="btn" href={{ route("confirmEliminar", $chollo->id) }}>Eliminar</a> 
             <p>Categoría: {{$chollo->categoria}}</p> 
             <p>Descripción: {{$chollo->descripcion}}</p>
             <p>Precio original: {{$chollo->precio}}€</p>
