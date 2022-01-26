@@ -24,6 +24,7 @@
         @yield('destacados')
         @yield('eliminar')
         @yield('detalle')
+        @yield('editar')
         <div>
             <a href={{ route('formCrear') }}>Crear un chollo</a>
         </div>
