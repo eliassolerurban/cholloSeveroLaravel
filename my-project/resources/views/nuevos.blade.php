@@ -3,7 +3,7 @@
 <h2>Nuevos chollos</h2>
 @foreach ($chollosNuevos as $chollo)
 <div>
-    <h4>{{$chollo->titulo}}</h4>
+    <a href={{ route("detalle", $chollo->id) }}><h4>{{$chollo->titulo}}</h4></a>
     <p>Categoría: {{$chollo->categoria}}</p> 
     <p>Descripción: {{$chollo->descripcion}}</p>
     <p>Precio original: {{$chollo->precio}}€</p>

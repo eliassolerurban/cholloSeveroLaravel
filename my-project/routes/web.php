@@ -12,3 +12,4 @@ Route::get('editar/{id}', [ PagesController::class, 'formEditar' ]) -> name('for
 Route::put('editar/{id}', [ PagesController::class, 'editar' ]) -> name('editar');
 Route::get('eliminar/{id}', [ PagesController::class, 'confirmEliminar' ]) -> name('confirmEliminar');
 Route::delete('eliminar/{id}', [ PagesController::class, 'eliminar' ]) -> name('eliminar');
+Route::get('detalle/{id}', [ PagesController::class, 'detalle' ]) -> name('detalle');

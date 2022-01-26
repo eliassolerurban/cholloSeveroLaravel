@@ -12,11 +12,11 @@ class PagesController extends Controller
         return view('inicio', compact('chollos'));
     }
     public function nuevos() {
-        $chollosNuevos = Chollo::orderBy('id', 'desc')->get();
+        $chollosNuevos = Chollo::orderBy('created_at')->get();
         return view('nuevos',compact('chollosNuevos'));
     }
     public function destacados() {
-        $chollosDestacados = Chollo::orderBy('puntuacion', 'desc')->limit(3)->get();
+        $chollosDestacados = Chollo::where('puntuacion', '>', 8)->get();
         return view('destacados', compact('chollosDestacados'));
     }
     public function formCrear() { return view('chollos.crear'); }
@@ -82,4 +82,10 @@ class PagesController extends Controller
 
         return $this->inicio();
     }
+
+    public function detalle($id) {
+        $chollo = Chollo::findOrFail($id);
+        return view('chollos.detalle', compact('chollo'));
+    }
+
 }

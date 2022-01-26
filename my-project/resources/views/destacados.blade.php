@@ -3,7 +3,7 @@
 <h2>Chollos destacados</h2>
 @foreach ($chollosDestacados as $chollo)
 <div>
-    <h4>{{$chollo->titulo}}</h4>
+    <a href={{ route("detalle", $chollo->id) }}><h4>{{$chollo->titulo}}</h4></a>
     <a class="btn" href={{ route("formEditar", $chollo->id) }}>Editar</button></a>
     <a class="btn" href={{ route("confirmEliminar", $chollo->id) }}>Eliminar</a> 
     <p>Categoría: {{$chollo->categoria}}</p> 
