@@ -21,5 +21,4 @@ Route::get("crear", [PagesController::class, 'formCrear'])->name('formCrear');
 Route::post('crear', [ PagesController::class, 'crear' ]) -> name('crear');
 Route::get('editar/{id}', [ PagesController::class, 'formEditar' ]) -> name('formEditar');
 Route::put('editar/{id}', [ PagesController::class, 'editar' ]) -> name('editar');
-Route::get('eliminar/{id}', [ PagesController::class, 'confirmEliminar' ]) -> name('confirmEliminar');
 Route::delete('eliminar/{id}', [ PagesController::class, 'eliminar' ]) -> name('eliminar');

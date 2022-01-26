@@ -4,8 +4,6 @@
 @foreach ($chollosNuevos as $chollo)
 <div>
     <h4>{{$chollo->titulo}}</h4>
-    <a class="btn" href={{ route("formEditar", $chollo->id) }}>Editar</button></a>
-    <a class="btn" href={{ route("confirmEliminar", $chollo->id) }}>Eliminar</a> 
     <p>Categoría: {{$chollo->categoria}}</p> 
     <p>Descripción: {{$chollo->descripcion}}</p>
     <p>Precio original: {{$chollo->precio}}€</p>
