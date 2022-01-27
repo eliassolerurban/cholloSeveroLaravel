@@ -5,12 +5,6 @@
 <div class="container border">
     <div class="col m-3 p-1"><a href={{ route("detalle", $chollo->id) }}><h4>{{$chollo->titulo}}</h4></a></div>
     <div class="col m-3 p-1">
-        <p>Categoría: {{$chollo->categoria}}</p> 
-    </div>
-    <div class="col m-3 p-1">
-        <p>Descripción: {{$chollo->descripcion}}</p>
-    </div>
-    <div class="col m-3 p-1">
         <p>Precio original: {{$chollo->precio}}€</p>
     </div>
     <div class="col m-3 p-1">
