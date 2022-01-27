@@ -9,14 +9,17 @@ class PagesController extends Controller
 {
     public function inicio() {
         $chollos = Chollo::all();
+        $chollos = Chollo::paginate(5);
         return view('inicio', compact('chollos'));
     }
     public function nuevos() {
         $chollosNuevos = Chollo::orderBy('created_at')->get();
+        $chollosNuevos = Chollo::paginate(5);
         return view('nuevos',compact('chollosNuevos'));
     }
     public function destacados() {
         $chollosDestacados = Chollo::where('puntuacion', '>', 8)->get();
+        $chollosDestacados = Chollo::paginate(5);
         return view('destacados', compact('chollosDestacados'));
     }
     public function formCrear() { return view('chollos.crear'); }
