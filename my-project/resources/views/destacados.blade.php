@@ -4,8 +4,6 @@
 @foreach ($chollosDestacados as $chollo)
 <div class="container border">
     <div class="col"><a href={{ route("detalle", $chollo->id) }}><h4>{{$chollo->titulo}}</h4></a></div>
-    <div class="col"><a class="btn" href={{ route("formEditar", $chollo->id) }}>Editar</button></a></div>
-    <div class="col"><a class="btn" href={{ route("confirmEliminar", $chollo->id) }}>Eliminar</a> </div>
     <div class="col">
         <p>Categoría: {{$chollo->categoria}}</p> 
     </div>
@@ -26,5 +24,4 @@
     </div>
 </div>
 @endforeach
-<div class="pagination">{{$chollosDestacados->links()}}</div>
 @endsection

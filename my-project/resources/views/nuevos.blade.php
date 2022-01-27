@@ -12,5 +12,4 @@
     <div class="col"><p>URL: <a href={{$chollo->url}}>{{$chollo->url}}</a></p></div>
 </div>
 @endforeach
-<div class="pagination">{{$chollosNuevos->links()}}</div>
 @endsection
