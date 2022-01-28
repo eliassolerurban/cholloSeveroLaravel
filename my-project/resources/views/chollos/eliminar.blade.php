@@ -8,6 +8,7 @@
         <p>Precio original: {{$chollo->precio}}€</p>
         <p>Precio actual: {{$chollo->precio_descuento}}€</p>
         <p>Puntuación: {{$chollo->puntuacion}}</p>
+        <img src='{{ asset("img/$chollo->id-chollo-severo.png") }}' alt="Imagen del chollo {{$chollo->titulo}}">
         <p>URL: <a href={{$chollo->url}}>{{$chollo->url}}</a></p>
         <form action={{ route("eliminar", $chollo->id) }} method="post">
             @csrf

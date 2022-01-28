@@ -14,11 +14,12 @@ class PagesController extends Controller
     }
     public function nuevos() {
         $chollosNuevos = Chollo::orderBy('created_at', 'desc')->get();
+        // $chollos = Chollo::paginate(5); Si lo pongo no me funciona el orderBy
         return view('nuevos',compact('chollosNuevos'));
     }
     public function destacados() {
         $chollosDestacados = Chollo::where('puntuacion', '>', 8)->orderBy('puntuacion', 'desc')->get();
-        $chollos = Chollo::paginate(5);
+        // $chollos = Chollo::paginate(5); Si lo pongo no me funciona el orderBy
         return view('destacados', compact('chollosDestacados'));
     }
     public function formCrear() { return view('chollos.crear'); }

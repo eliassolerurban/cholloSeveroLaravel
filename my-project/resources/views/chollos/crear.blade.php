@@ -1,7 +1,7 @@
 @extends('static')
 @section('crear')
   @if (session('mensaje'))
-    <div>
+    <div class="btn btn-success">
         {{ session('mensaje') }}
     </div>
   @endif

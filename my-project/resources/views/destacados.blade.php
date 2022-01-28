@@ -13,6 +13,7 @@
     <div class="col m-3 p-1">
         <p>Puntuación: {{$chollo->puntuacion}}</p>
     </div>
+    <img src='{{ asset("img/$chollo->id-chollo-severo.png") }}' alt="Imagen del chollo {{$chollo->titulo}}">
     <div class="col m-3 p-1">
         <p>URL: <a href={{$chollo->url}}>{{$chollo->url}}</a></p>
     </div>

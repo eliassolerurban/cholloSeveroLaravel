@@ -2,6 +2,7 @@
 @section('detalle')
     <h2>Detalle del chollo {{ $chollo->titulo }}</h2>
         <div>
+            <p>Id: {{$chollo->id}}</p> 
             <p>Categoría: {{$chollo->categoria}}</p> 
             <p>Descripción: {{$chollo->descripcion}}</p>
             <p>Precio original: {{$chollo->precio}}€</p>
