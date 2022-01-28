@@ -39,6 +39,7 @@
         @yield('detalle')
         @yield('editar')
         @yield('crear')
+        @yield('error')
         <div class="contenedorCrear">
             <a class="btn btn-primary" href={{ route('formCrear') }}>Crear un chollo</a>
         </div>
