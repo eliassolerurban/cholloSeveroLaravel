@@ -16,6 +16,14 @@ class HomeController extends Controller
         $this->middleware('auth');
     }
 
+    // public function inicio() {
+    //     return auth()->user();
+      
+    //     // return auth()->user() -> name;
+    //     // return auth()->user() -> email;
+    //     // ...
+    //   }
+
     /**
      * Show the application dashboard.
      *
