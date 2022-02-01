@@ -34,7 +34,7 @@
                     <li class="nav-item">
                         <a class="nav-link" href={{ route('destacados') }}>Destacados</a>
                     </li>
-                    <li>
+                    <li class="estado-usuario">
                         @guest
                             @if (Route::has('login'))
                         <li class="nav-item">

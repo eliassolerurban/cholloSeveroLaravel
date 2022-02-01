@@ -25,3 +25,8 @@ img:not([class='logo']) {
     width: 400px;
     height: 400px;
 }
+
+.estado-usuario {
+    display: flex;
+    justify-content: flex-end;
+}
