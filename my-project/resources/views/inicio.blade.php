@@ -15,5 +15,8 @@
             </div>
         </div>
         @endforeach
-        <div class="pagination">{{$chollos->links()}}</div>
+        <div class="contenedorCrear">
+            <a class="btn btn-primary" href={{ route('formCrear') }}>Crear un chollo</a>
+        </div>
+        <div class="pagination m-4">{{$chollos->links()}}</div>
 @endsection

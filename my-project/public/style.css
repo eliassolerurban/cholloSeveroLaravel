@@ -1,7 +1,8 @@
 .titulo,
 .pagination,
 .contenedorCrear,
-.btn-success {
+.btn-success,
+footer {
     display: flex;
     align-items: center;
     justify-content: center;
