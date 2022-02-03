@@ -26,7 +26,6 @@ img:not([class='logo']) {
     height: 400px;
 }
 
-.estado-usuario {
-    display: flex;
-    justify-content: flex-end;
+.estado-usuario .nav-item a {
+    float: right;
 }
