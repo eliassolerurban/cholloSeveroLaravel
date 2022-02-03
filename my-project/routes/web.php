@@ -17,3 +17,5 @@ Route::delete('eliminar/{id}', [ HomeController::class, 'eliminar' ]) -> name('e
 Route::get('detalle/{id}', [ PagesController::class, 'detalle' ]) -> name('detalle');
 
 Auth::routes();
+
+Route::get('/home', [ PagesController::class, 'inicio' ]) -> name('inicio');
