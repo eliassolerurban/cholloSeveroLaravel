@@ -30,6 +30,7 @@ class HomeController extends Controller
         
         $chollo = new Chollo();
     
+        $id = auth() -> user() -> id;
         $chollo -> titulo = $request -> titulo;
         $chollo -> descripcion = $request -> descripcion;
         $chollo -> categoria = $request -> categoria;
@@ -38,6 +39,7 @@ class HomeController extends Controller
         $chollo -> precio_descuento = $request -> precio_descuento;
         $chollo -> puntuacion = 0;
         $chollo -> disponible = true;
+        $chollo -> user_id = $id;
         $chollo -> save();
     
         return back() -> with('mensaje', 'Chollo agregado exitósamente');

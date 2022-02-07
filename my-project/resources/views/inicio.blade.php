@@ -10,6 +10,7 @@
                 <div class="col m-3 p-1"><p>Precio original: {{$chollo->precio}}€</p></div>
                 <div class="col m-3 p-1"><p>Precio actual: {{$chollo->precio_descuento}}€</p></div>
                 <div class="col m-3 p-1"><p>Puntuación: {{$chollo->puntuacion}}</p></div>
+                <div class="col m-3 p-1"><p>Nombre del usuario que lo ha subido: {{$chollo}}</p></div>
                 <img src='{{ asset("img/$chollo->id-chollo-severo.png") }}' alt="Imagen del chollo {{$chollo->titulo}}">
                 <div><p>URL: <a href={{$chollo->url}}>{{$chollo->url}}</a></p></div>
             </div>
