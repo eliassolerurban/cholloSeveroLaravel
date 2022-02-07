@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\Chollo;
 use Illuminate\Http\Request;
 
+// Method App\Http\Controllers\HomeController::inicio does not exist. 
+//tengo que solucionar esto
 class HomeController extends Controller
 {
     /**
@@ -15,6 +17,13 @@ class HomeController extends Controller
     public function __construct()
     {
         $this->middleware('auth');
+    }
+
+    public function inicio() {
+        $chollos = Chollo::with("user")->get();
+        // $chollos = Chollo::all();
+        $chollos = Chollo::paginate(3);
+        return view('inicio', compact('chollos'));
     }
 
     public function formCrear() { return view('chollos.crear'); }
