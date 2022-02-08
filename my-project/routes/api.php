@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\APIController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -17,3 +18,7 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+Route::get('/chollos', [ APIController::class, 'index' ])->name('chollos');
+Route::get('/chollos/{id?}', [ APIController::class, 'chollo' ])->name('chollo');
+Route::get('/chollos/random', [ APIController::class, 'index' ])->name('chollo.random');
