@@ -90,6 +90,9 @@ class APIController extends Controller
     }
 
     public function cholloRandom(){
-        $idChollos = Chollo::select('id');
+        $idChollos = Chollo::all('id');
+        $randomIndex = rand(0, count($idChollos) - 1);
+        $randomId = $idChollos[$randomIndex];
+        return $this->chollo($randomId);
     }
 }
