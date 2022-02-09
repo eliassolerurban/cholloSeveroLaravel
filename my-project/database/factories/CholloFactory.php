@@ -14,7 +14,17 @@ class CholloFactory extends Factory
     public function definition()
     {
         return [
-            //poner campos de chollos
-        ];
+            'created_at' => $this->faker->unixTime(),
+            'updated_at' => $this->faker->unixTime(),
+            'titulo' => $this->faker->word(2),
+            'descripcion' => $this->faker->text(150),
+            'url' => $this->faker->url(),
+            'categoria' => $this->faker->word(),
+            // 'categoria_id' => $this->faker->numberBetween(1, 10),
+            'puntuacion' => $this->faker->numberBetween(1, 10),
+            'precio' => $this->faker->randomFloat(1, 1, 90),
+            'precio_descuento' => $this->faker->randomFloat(1, 1, 90),
+            'disponible' => $this->faker->boolean(),
+            'user_id' => $this->faker->numberBetween(1, 10),        ];
     }
 }
