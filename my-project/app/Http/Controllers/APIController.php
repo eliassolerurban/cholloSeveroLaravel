@@ -85,14 +85,14 @@ class APIController extends Controller
     }
 
     public function chollo($id){
-        $chollo = Chollo::findOrFail($id);
-        return $chollo;       
+        return Chollo::findOrFail($id);       
     }
 
     public function cholloRandom(){
-        $idChollos = Chollo::all('id');
-        $randomIndex = rand(0, count($idChollos) - 1);
-        $randomId = $idChollos[$randomIndex];
-        return $this->chollo($randomId);
+        // $idChollos = Chollo::all('id');
+        // $randomIndex = rand(0, count($idChollos) - 1);
+        // $randomId = $idChollos[$randomIndex];
+        // return $this->chollo($randomId);
+        return Chollo::inRandomOrder()->limit(1)->get();
     }
 }
