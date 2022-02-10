@@ -3,7 +3,8 @@
     <div class="previsualizacion">
         <h3>Previsualización del chollo</h3>
         <h4>{{$chollo->titulo}}</h4>
-        <p>Categoría: {{$chollo->categoria}}</p>
+        {{-- //TODO:ponerlo en condiciones para que liste todas las categorías --}}
+        {{-- <p>Categoría: {{$chollo->categoria}}</p> --}}
         <p>Descripción: {{$chollo->descripcion}}</p>
         <p>Precio original: {{$chollo->precio}}€</p>
         <p>Precio actual: {{$chollo->precio_descuento}}€</p>
