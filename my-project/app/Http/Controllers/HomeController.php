@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Categoria;
 use App\Models\Chollo;
 use Illuminate\Http\Request;
 
@@ -26,13 +27,16 @@ class HomeController extends Controller
         return view('inicio', compact('chollos'));
     }
 
-    public function formCrear() { return view('chollos.crear'); }
+    public function formCrear() { 
+        $categorias = Categoria::all();
+        return view('chollos.crear', compact("categorias"));
+    }
     public function crear(Request $request) {
         
         $request -> validate([
             'titulo' => 'required',
             'descripcion' => 'required',
-            'categoria' => 'required',
+            'categorias' => 'required',
             'precio' => 'required',
             'precio_descuento' => 'required'
           ]);
@@ -42,7 +46,6 @@ class HomeController extends Controller
         $id = auth() -> user() -> id;
         $chollo -> titulo = $request -> titulo;
         $chollo -> descripcion = $request -> descripcion;
-        $chollo -> categoria = $request -> categoria;
         $chollo -> precio = $request -> precio;
         $chollo -> url = $request -> url;
         $chollo -> precio_descuento = $request -> precio_descuento;
@@ -50,19 +53,25 @@ class HomeController extends Controller
         $chollo -> disponible = true;
         $chollo -> user_id = $id;
         $chollo -> save();
-    
+
+        foreach ($request -> categorias as $categoria) {
+            $chollo -> categoria()->attach($categoria);
+        }  
         return back() -> with('mensaje', 'Chollo agregado exitósamente');
     }
+    
+    //TODO:enviar todas las categorías
     public function formEditar($id) {
         $chollo = Chollo::findOrFail($id);
         return view('chollos.editar', compact('chollo'));
     }
 
+    //TODO:modificar para categorías
     public function editar(Request $request, $id){
         $request -> validate([
             'titulo' => 'required',
             'descripcion' => 'required',
-            'categoria' => 'required',
+            'categorias' => 'required',
             'precio' => 'required',
             'precio_descuento' => 'required',
             'puntuacion' => 'required'
@@ -71,7 +80,7 @@ class HomeController extends Controller
         $cholloEditar = Chollo::findOrFail($id);
         $cholloEditar -> titulo = $request -> titulo; 
         $cholloEditar -> descripcion = $request -> descripcion; 
-        $cholloEditar -> categoria = $request -> categoria; 
+        $cholloEditar -> categorias = $request -> categorias; 
         $cholloEditar -> precio = $request -> precio; 
         $cholloEditar -> precio_descuento = $request -> precio_descuento; 
         $cholloEditar -> puntuacion = $request -> puntuacion;
@@ -88,7 +97,7 @@ class HomeController extends Controller
     public function eliminar($id){
         $cholloEliminar = Chollo::findOrFail($id);
         $cholloEliminar -> delete();
-
+        $cholloEliminar->categoria() -> detach( $cholloEliminar -> categoria );
         return $this->inicio();
     }
 

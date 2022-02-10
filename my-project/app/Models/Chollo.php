@@ -13,4 +13,8 @@ class Chollo extends Model
     {
         return $this->belongsTo(User::class);
     }
+
+    public function categoria(){
+        return $this -> belongsToMany(Categoria::class);
+    }
 }

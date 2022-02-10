@@ -11,7 +11,11 @@
     @csrf
     <label for="titulo">Título: </label><input type="text" name="titulo" class="form-control mb-2" required autofocus value="{{$chollo->titulo}}">
     <label for="descripcion">Descripción: </label><input type="text" name="descripcion" class="form-control mb-2" required value="{{$chollo->descripcion}}">
-    <label for="categoria">Categoría: </label><input type="text" name="categoria" class="form-control mb-2" required value="{{$chollo->categoria}}">
+    {{-- //TODO:Alejandro es un liante y tengo que arreglar el select --}}
+    <label for="categorias[]">Categoría: </label>
+    <select name="categorias[]">
+      <option value=""></option>
+    </select>
     <label for="url">URL:<input type="url" name="url" class="form-control mb-2" required value="{{$chollo->url}}">
     <label for="precio">Precio:<input type="number" name="precio" class="form-control mb-2" required value="{{$chollo->precio}}">
     <label for="precio_descuento">Precio actual:<input type="number" name="precio_descuento" class="form-control mb-2" required value="{{$chollo->precio_descuento}}">
