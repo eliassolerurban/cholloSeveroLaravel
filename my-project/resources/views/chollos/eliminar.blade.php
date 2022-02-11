@@ -3,9 +3,14 @@
     <div class="previsualizacion">
         <h3>Previsualización del chollo</h3>
         <h4>{{$chollo->titulo}}</h4>
-        {{-- //TODO:ponerlo en condiciones para que liste todas las categorías --}}
-        {{-- <p>Categoría: {{$chollo->categoria}}</p> --}}
         <p>Descripción: {{$chollo->descripcion}}</p>
+        <p>Categorías:</p>
+        <ul>
+            @foreach ($chollo->categoria as $categoria)
+                <li>{{ $categoria["nombre"] }}</li>
+            @endforeach
+
+        </ul>
         <p>Precio original: {{$chollo->precio}}€</p>
         <p>Precio actual: {{$chollo->precio_descuento}}€</p>
         <p>Puntuación: {{$chollo->puntuacion}}</p>
