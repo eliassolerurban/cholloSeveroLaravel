@@ -2,6 +2,13 @@
 
 namespace Database\Factories;
 
+/* 
+php artisan make:factory UserFactory
+php artisan tinker
+User::factory()->count(9)->create()
+exit
+*/
+
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Str;
 

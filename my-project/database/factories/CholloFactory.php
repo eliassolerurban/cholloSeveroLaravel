@@ -2,6 +2,13 @@
 
 namespace Database\Factories;
 
+/* 
+php artisan make:factory CholloFactory
+php artisan tinker
+Chollo::factory()->count(10)->create()
+exit
+*/
+
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 class CholloFactory extends Factory
@@ -19,7 +26,6 @@ class CholloFactory extends Factory
             'titulo' => $this->faker->word(2),
             'descripcion' => $this->faker->text(150),
             'url' => $this->faker->url(),
-            'categoria' => $this->faker->word(),
             // 'categoria_id' => $this->faker->numberBetween(1, 10),
             'puntuacion' => $this->faker->numberBetween(1, 10),
             'precio' => $this->faker->randomFloat(1, 1, 90),
