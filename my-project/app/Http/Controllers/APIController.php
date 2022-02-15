@@ -36,7 +36,28 @@ class APIController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request -> validate([
+            'titulo' => 'required',
+            'descripcion' => 'required',
+            'precio' => 'required',
+            'precio_descuento' => 'required'
+          ]);
+        
+        $chollo = new Chollo();
+    
+        $id = 1;
+        $chollo -> titulo = $request -> titulo;
+        $chollo -> descripcion = $request -> descripcion;
+        $chollo -> precio = $request -> precio;
+        $chollo -> url = $request -> url;
+        $chollo -> precio_descuento = $request -> precio_descuento;
+        $chollo -> puntuacion = 0;
+        $chollo -> disponible = true;
+        $chollo -> save();
+        $chollo -> user_id = $id;
+
+        $chollo -> categoria()->attach(1);
+        return response()->json($chollo, 201);
     }
 
     /**

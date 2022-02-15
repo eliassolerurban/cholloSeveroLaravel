@@ -99,8 +99,7 @@ class HomeController extends Controller
         $cholloEliminar -> delete();
         $cholloEliminar->categoria() -> detach( $cholloEliminar -> categoria );
         
-        //TODO:cambiar esto para que vuelva a inicio con su ruta
-        return $this->inicio();
+        return redirect('/');
     }
 
     // public function inicio() {

@@ -22,3 +22,4 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 Route::get('/chollos', [ APIController::class, 'index' ])->name('chollos');
 Route::get('/chollos/{id?}', [ APIController::class, 'chollo' ])->name('chollo');
 Route::get('/random', [ APIController::class, 'cholloRandom' ])->name('chollo.random');
+Route::get('/store', [ APIController::class, 'store' ])->name('store');
