@@ -66,7 +66,6 @@ class HomeController extends Controller
         return view('chollos.editar', compact('chollo', 'categorias'));
     }
 
-    //TODO:modificar para categorías
     public function editar(Request $request, $id){
         $request -> validate([
             'titulo' => 'required',
