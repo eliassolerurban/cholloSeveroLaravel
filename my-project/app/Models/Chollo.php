@@ -17,4 +17,12 @@ class Chollo extends Model
     public function categoria(){
         return $this -> belongsToMany(Categoria::class);
     }
+
+    public function attachCategorias($categorias){
+        $this -> categoria() -> attach($categorias);
+    }
+    
+    public function detachCategorias($categorias){
+        $this -> categoria() -> detach($categorias);
+    } 
 }

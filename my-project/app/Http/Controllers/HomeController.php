@@ -22,6 +22,7 @@ class HomeController extends Controller
 
     public function inicio() {
         $chollos = Chollo::with("user")->get();
+        $categorias = Categoria::all();
         // $chollos = Chollo::all();
         $chollos = Chollo::paginate(3);
         return view('inicio', compact('chollos'));
@@ -54,16 +55,15 @@ class HomeController extends Controller
         $chollo -> user_id = $id;
         $chollo -> save();
 
-        foreach ($request -> categorias as $categoria) {
-            $chollo -> categoria()->attach($categoria);
-        }  
+        $chollo->attachCategorias($request -> categorias);
+
         return back() -> with('mensaje', 'Chollo agregado exitósamente');
     }
     
-    //TODO:enviar todas las categorías
     public function formEditar($id) {
         $chollo = Chollo::findOrFail($id);
-        return view('chollos.editar', compact('chollo'));
+        $categorias = Categoria::all();
+        return view('chollos.editar', compact('chollo', 'categorias'));
     }
 
     //TODO:modificar para categorías
@@ -80,12 +80,13 @@ class HomeController extends Controller
         $cholloEditar = Chollo::findOrFail($id);
         $cholloEditar -> titulo = $request -> titulo; 
         $cholloEditar -> descripcion = $request -> descripcion; 
-        $cholloEditar -> categorias = $request -> categorias; 
         $cholloEditar -> precio = $request -> precio; 
         $cholloEditar -> precio_descuento = $request -> precio_descuento; 
         $cholloEditar -> puntuacion = $request -> puntuacion;
         $cholloEditar -> save(); 
-
+        
+        $cholloEditar -> detachCategorias($cholloEditar -> categorias);
+        $cholloEditar -> attachCategorias($request -> categorias);
         return back() -> with('mensaje', 'Chollo actualizado');
     }
 

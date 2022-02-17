@@ -19,6 +19,16 @@ class CreateCategoriaCholloTable extends Migration
             $table->unsignedInteger('categoria_id');
             $table->unsignedInteger('chollo_id');
         });
+
+        /*
+        $table->foreignId('chollo_id')
+            ->nullable()
+            ->constrained('chollo')
+            ->cascadeOnUpdate()
+            ->nullOnDelete();
+
+            mismo para con categoria_id
+        */
     }
 
     /**

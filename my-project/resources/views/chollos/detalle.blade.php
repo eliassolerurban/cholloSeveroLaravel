@@ -5,7 +5,6 @@
             <p>Id: {{$chollo->id}}</p> 
             <p>Categorías:</p>
             <ul>
-                {{-- //TODO:implementar el seeder que me ha dicho Mayury para rellenar la tabla pivote --}}
                 @foreach ($chollo->categoria as $categoria)
                     <li>{{ $categoria["nombre"] }}</li>
                 @endforeach
