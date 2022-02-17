@@ -6,8 +6,6 @@ use App\Models\Categoria;
 use App\Models\Chollo;
 use Illuminate\Http\Request;
 
-// Method App\Http\Controllers\HomeController::inicio does not exist. 
-//tengo que solucionar esto
 class HomeController extends Controller
 {
     /**
