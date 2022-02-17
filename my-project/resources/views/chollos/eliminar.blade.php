@@ -1,6 +1,5 @@
 @extends('static')
 @section('eliminar')
-    {{-- //TODO:mirar qué pasa que no elimina --}}
     <div class="previsualizacion">
         <h3>Previsualización del chollo</h3>
         <h4>{{$chollo->titulo}}</h4>
